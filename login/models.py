@@ -7,3 +7,4 @@ class LoginUser(models.Model):
     class Meta:
         db_table = 'login_user'
         verbose_name = '로그인 테스트 테이블'
+
