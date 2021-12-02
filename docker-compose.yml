@@ -1,0 +1,24 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    image: silverstar456/django-api:nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./temp:/srv/docker-server
+      - ./log:/var/log/nginx # socker 공유를 위한 볼륨 마운트
+    depends_on:
+      - django
+
+  django:
+    container_name: django
+    build: ./temp
+    image: silverstar456/django-api:temp
+    restart: always
+    command: uwsgi --ini uwsgi.ini
+    volumes:
+      - ./temp:/srv/docker-server
+      - ./log:/var/log/uwsgi # socker 공유를 위한 볼륨 마운트
