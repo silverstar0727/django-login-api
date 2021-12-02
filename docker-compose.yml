@@ -22,8 +22,10 @@ services:
     volumes:
       - ./docker-server:/srv/docker-server
       - ./log:/var/log/uwsgi # socker 공유를 위한 볼륨 마운트
+    depends_on:
+      - db
 
-  mysql:
+  db:
     image: mysql:5.7
     restart: always
     container_name: mysql-db
