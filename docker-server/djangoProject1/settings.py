@@ -37,8 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    #myapp
+    'login',
+    #django-rest-auth
     'rest_framework',
-    'login'
+    'rest_framework_simplejwt.token_blacklist',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    #django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
 
 #
@@ -99,7 +109,7 @@ WSGI_APPLICATION = 'djangoProject1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '34.125.228.240',
+        'HOST': '34.125.214.112',
         'NAME': 'server_dev',
         'USER': 'root',
         'PASSWORD': 'admin123!',
@@ -146,3 +156,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# AUTH_USER_MODEL = 'login.User'
+SITE_ID = 1
